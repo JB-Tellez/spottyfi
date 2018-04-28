@@ -3,35 +3,23 @@ const express = require('express'); // Express web server framework
 const request = require('request'); // "Request" library
 const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
-const pg = require('pg');
-
-require('dotenv').config();
-
-
-// ************ Application Setup *************
-const PORT = process.env.PORT || 8888;
-const CLIENT_URL = process.env.CLIENT_URL;
-const app = express();
-
-
-// ************ Database Setup *************
-const client = new pg.Client(process.env.DATABASE_URL);
-client.connect();
-client.on('error', err => console.error(err));
 
 let redirect_uri =
-process.env.REDIRECT_URI ||
-'http://localhost:8888/callback';
+  process.env.REDIRECT_URI ||
+  'http://localhost:8888/callback';
 
+const stateKey = 'spotify_auth_state';
 
-// ************ Application Middleware ************
+const app = express();
+
+// client.connect();
+// client.on('error', err => console.error(err));
+
+// Application Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-
-// ************ Spotify OAuth & API Calls ************
-const stateKey = 'spotify_auth_state';
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -157,14 +145,5 @@ app.get('/refresh_token', function(req, res) {
 
 app.get('/test', (req, res) => res.send('hello world, it works'));
 
-// Tests for CRUD w/ db
-// app.get('/artists', (req, res) => {
-//   client.query(`
-//     SELECT artist FROM artists;
-//   `)
-//     .then(result => res.send(result.rows))
-//     .catch(console.error);
-// });
-
 console.log('Listening on 8888');
-app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
+app.listen(8888);
