@@ -1,2 +1,1 @@
-# spottyfi
-Spotify Playground
+# artistree-server

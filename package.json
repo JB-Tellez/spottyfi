@@ -1,25 +1,30 @@
 {
-  "name": "spottyfi",
+  "name": "artistree",
   "version": "1.0.0",
-  "description": "Spotify Playground",
-  "main": "index.js",
-  "dependencies": {
-    "express": "^4.16.3"
-  },
-  "devDependencies": {},
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JB-Tellez/spottyfi.git"
+    "url": "git+https://github.com/Seattle-Artistree/artistree-server.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JB-Tellez/spottyfi/issues"
+    "url": "https://github.com/Seattle-Artistree/artistree-server/issues"
   },
-  "homepage": "https://github.com/JB-Tellez/spottyfi#readme"
+  "homepage": "https://github.com/Seattle-Artistree/artistree-server#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "pg": "^7.4.1",
+    "querystring": "^0.2.0",
+    "request": "^2.85.0",
+    "superagent": "^3.8.2"
+  }
 }
